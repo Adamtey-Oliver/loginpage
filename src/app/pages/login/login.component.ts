@@ -2,6 +2,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from '@app/interface/aut';
+import { error } from 'console';
 
 @Component({
   selector: 'app-login',
@@ -11,22 +13,36 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  loginObj: login;
+  loginObj: login = new login();
+  users: User[] = [];
 
   constructor(private http: HttpClient, private router: Router) {
-    this.loginObj = new login();
+    this.loadUsers();
+  }
+
+  loadUsers(){
+    this.http.get<any>('/assets/data.json').subscribe(
+      (data: { users: User[] }) => {
+      this.users = data.users;
+    },
+    error => {
+      console.error('Errior loading users:', error)
+    }
+    );
   }
 
   onLogin() {
-    debugger;
-    this.http.post('https://freeapi.miniprojectideas.com/api/User/Login', this.loginObj).subscribe((res:any)=>{
-      if(res.result){
-        alert("Login Success");
-        this.router.navigateByUrl('/dashboard')
-      }else{
-        alert(res.message)
-      }
-    })
+    const foundUser = this.users.find(user => user.EmailId === this.loginObj.EmailId && user.Password
+      === this.loginObj.Password);
+    if (foundUser) {
+      console.log("Login Success");
+      console.log("Navigating to dashboard..");
+      this.router.navigateByUrl('/dashboard');
+
+      sessionStorage.setItem('loginSuccess', 'true');
+    }else{
+      alert("Invalid Email or Password");
+    }
   }
 }
 
