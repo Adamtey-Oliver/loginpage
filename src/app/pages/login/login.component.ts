@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '@app/interface/aut';
 import { error } from 'console';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, HttpClientModule],
+  imports: [FormsModule, HttpClientModule, MatProgressSpinner],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
