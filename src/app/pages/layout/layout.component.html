@@ -1,52 +1,24 @@
 <header class="text-gray-400 bg-gray-900 body-font">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+  <div class="container mx-auto flex flex-wrap p-4 flex-col md:flex-row items-center">
+    <img src="/src/favicon.ico" alt="Logo">
     <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-      <a routerLink="/dashboard" class="nav-link mr-5 hover:text-white" routerLinkActive="active">Dashboard</a>
-      <a class="nav-link mr-5 hover:text-white" routerLinkActive="active" router="#">Link</a>
-      <a routerLink="/contact" class="nav-link mr-5 hover:text-white" routerLinkActive="active">Contact</a>
-      <a class="nav-link hover:text-white" routerLinkActive="active">Fourth Link</a>
+      <a routerLink="/dashboard" class="text-gray-400 no-underline mr-5 hover:text-white" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/service" class="text-gray-400 no-underline mr-5 hover:text-white" routerLinkActive="active" routerLinkActive="active">Services</a>
+      <a routerLink="/contact" class="text-gray-400 no-underline mr-5 hover:text-white" routerLinkActive="active">Contact</a>
+      <a routerLink="/press" class="text-gray-400 no-underline hover:text-white" routerLinkActive="active">Press</a>
     </nav>
-    <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-white lg:items-center lg:justify-center mb-4 md:mb-0">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-      </svg>
-      <span class="ml-3 text-xl xl:block lg:hidden">Login App</span>
-    </a>
-    <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
-      <button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0 btn btn-success" (click)="logoff()">Log Out</button>
+    <div class="lg:w-2/5 md:w-1/4 md:pl-20 inline-flex lg:justify-end ml-5 lg:ml-0">
+      <button class="inline-flex items-center bg-green-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0" (click)="logoff()">Log Out</button>
     </div>
   </div>
 </header>
 
 
+<div class="h-10 bg-gray-800">
+  <h1 class="text-center text-gray-400">Comming Soon..</h1>
+</div>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-gray-800">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Login App</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/dashboard">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" href="/contact">Contact</a>
-          </li>
-        </ul>
-        <form class="d-flex">
-          
-          <button class="btn btn-success" type="button" (click)="logoff()">Log-Out</button>
-        </form>
-      </div>
-    </div>
-  </nav>
 
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
